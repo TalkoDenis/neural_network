@@ -1,0 +1,16 @@
+import numpy as np
+from src.nn.layer import Layer
+
+class Linear(Layer):
+    def __init__(self, input_size, output_size):
+        super().__init__()
+        self.weights = np.random.rand(input_size, output_size) - 0.5
+        self.bias = np.random.rand(input_size, output_size) - 0.5
+
+    def forward(self, input_data):
+        self.input = input_data
+        self.output = input_data @ self.weights + self.bias
+        return self.output
+
+    def backward(self, output_error, learning_rate):
+        pass
