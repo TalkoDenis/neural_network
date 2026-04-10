@@ -13,5 +13,5 @@ my_network = Network([
 
 final_answer = my_network.predict(my_data)
 
-print(f'Input data {input_data}')
+print(f'Input data {my_data}')
 print(f'Predict {final_answer}')
