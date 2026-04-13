@@ -13,4 +13,8 @@ class Linear(Layer):
         return self.output
 
     def backward(self, output_error, learning_rate):
-        pass
+        input_error = output_error @ self.weights.T
+        weights_error = self.input.T @ output_error
+        self.weights = self.weights - (learning_rate * weights_error)
+        self.bias = self.bias - (learning_rate * output_error)
+        return input_error

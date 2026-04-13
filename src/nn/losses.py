@@ -1,12 +1,13 @@
-from abc import ABC, abstractmethod
+import numpy as np
+from src.nn.loss import Loss
 
-class Loss(ABC):
+class MSE(Loss):
+    def __init__(self):
+        pass
 
-    @abstractmethod
     def forward():
-        pass
+        return np.mean(np.power(y_true - y_pred, 2))
 
-    @abstractmethod
-    def backward():
-        pass
-    
+    def backwerd():
+        n = y_true.size
+        return (2 / n) * (y_pred - y_true)

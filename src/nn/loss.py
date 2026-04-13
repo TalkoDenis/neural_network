@@ -1,11 +1,12 @@
-from src.nn.loss import Loss
+from abc import ABC, abstractmethod
 
-class MSE(Loss):
-    def __init__():
+class Loss(ABC):
+
+    @abstractmethod
+    def forward(self, y_true, y_pred):
         pass
 
-    def forward():
-        return np.mean(np.power(y_true - y_pred, 2))
-
-    def backwerd():
+    @abstractmethod
+    def backward(self, y_true, y_pred):
         pass
+    
