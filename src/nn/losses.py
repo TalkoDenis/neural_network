@@ -5,9 +5,9 @@ class MSE(Loss):
     def __init__(self):
         pass
 
-    def forward():
+    def forward(self, y_true, y_pred):
         return np.mean(np.power(y_true - y_pred, 2))
 
-    def backwerd():
+    def backward(self, y_true, y_pred):
         n = y_true.size
         return (2 / n) * (y_pred - y_true)
