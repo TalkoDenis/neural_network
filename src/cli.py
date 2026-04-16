@@ -12,4 +12,9 @@ def parse_arguments():
                         default=1000, 
                         help='Number of training loops')
 
+    parser.add_argument('--learning_rate',
+                        type=float,
+                        default=0.1,
+                        help='Speed of learning')
+    
     return parser.parse_args()

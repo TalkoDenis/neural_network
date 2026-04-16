@@ -1,15 +1,14 @@
-import numpy as np
 from src.nn.linear import Linear
 from src.nn.activations import ReLU
 from src.nn.losses import MSE
 from src.nn.network import Network
 from src.cli import parse_arguments
+from src.data.dataset import XORData
 
 args = parse_arguments()
 
-x_train = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-
-y_train = np.array([[0], [1], [1], [0]])
+dataset = XORData()
+x_train, y_train = dataset.get_data()
 
 my_network = Network([
                          Linear(input_size=2, output_size=4),
@@ -19,7 +18,7 @@ my_network = Network([
                      loss_function=MSE())
 
 epochs = args.epochs
-learning_rate = 0.1
+learning_rate = args.learning_rate
 
 print("Starting to learn...\n")
 
