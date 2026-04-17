@@ -19,7 +19,7 @@ class Trainer:
                     x = x_train[i:i+1]
                     y = y_train[i:i+1]
                     total_error += self.network.loss.forward(y, self.network.predict(x))
-                print(f"Epoch {epoch} | Average Error: {total_error / 4:.4f}")
+                print(f"Epoch {epoch} | Average Error: {total_error / len(x_train)}")
 
         print("\nTraining Complete! Let's look at the final predictions:")
         for i in range(len(x_train)):

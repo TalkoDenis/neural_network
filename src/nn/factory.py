@@ -24,6 +24,4 @@ class NetworkFactory:
                              loss_function=MSE())
         else:
             raise ValueError(f'Unnown network type: {network_type}')
-
-
-        
+        return my_network        
