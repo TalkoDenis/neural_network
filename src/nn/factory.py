@@ -10,7 +10,7 @@ class NetworkFactory:
             my_network = Network([
                                  Linear(input_size=2, output_size=4),
                                  ReLU(),
-                                 Linear(input_size=4, output_size=3)
+                                 Linear(input_size=4, output_size=1)
                              ],
                              loss_function=MSE())
         elif network_type == 'deep': 

@@ -1,4 +1,4 @@
-import mumpy as np
+import numpy as np
 
 class DataLoader:
     def __init__(self, x_data, y_data, batch_size=32):
@@ -18,8 +18,8 @@ class DataLoader:
             start_index = i * self.batch_size
             end_index = start_index + self.batch_size
 
-            x_batch = self.x[start_index:end]
-            y_batch = self.y[start_index:end]
+            x_batch = self.x[start_index:end_index]
+            y_batch = self.y[start_index:end_index]
 
             batches.append((x_batch, y_batch))
 

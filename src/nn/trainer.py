@@ -1,25 +1,25 @@
+from src.nn.dataloader import DataLoader
+
 class Trainer:
     def __init__(self, network, learning_rate):
         self.network = network
         self.learning_rate = learning_rate
 
-    def train(self, x_train, y_train, epochs):
+    def train(self, x_train, y_train, epochs, batch_size):
         print("Starting to learn...\n")
 
+        data_loader = DataLoader(x_train, y_train, batch_size)
+
         for epoch in range(epochs):
-            for i in range(len(x_train)):
-                x = x_train[i:i+1]
-                y = y_train[i:i+1]
-        
-                self.network.train(x, y, self.learning_rate)
-        
+            batches = data_loader.get_batches()
+
+            for x_batch, y_batch in batches:
+                self.network.train(x_batch, y_batch, self.learning_rate)
+
             if epoch % 100 == 0:
-                total_error = 0
-                for i in range(len(x_train)):
-                    x = x_train[i:i+1]
-                    y = y_train[i:i+1]
-                    total_error += self.network.loss.forward(y, self.network.predict(x))
-                print(f"Epoch {epoch} | Average Error: {total_error / len(x_train)}")
+                prediction = self.network.predict(x_train)
+                error = self.network.loss.forward(y_train, prediction)
+                print(f'Epoch {epoch}, average error {error}')            
 
         print("\nTraining Complete! Let's look at the final predictions:")
         for i in range(len(x_train)):
