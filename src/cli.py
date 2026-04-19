@@ -16,5 +16,9 @@ def parse_arguments():
                         type=float,
                         default=0.1,
                         help='Speed of learning')
-    
+
+    parser.add_argument('--batch_size',
+                        type=int,
+                        default=2,
+                        help='The size of a butch')   
     return parser.parse_args()
