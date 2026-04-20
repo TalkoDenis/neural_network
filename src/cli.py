@@ -42,3 +42,17 @@ def parse_arguments():
                         help='Save the trained model to the folder')
     
     return parser.parse_args()
+
+    def parse_inference_args():
+        parser = argparse.ArgumentParser(description='CLI')
+        parser.add_argument('--size',
+                            type=float,
+                            required=True,
+                            help='Size of the first variable')
+
+        parser.add_argument('--bedrooms',
+                            type=float,
+                            required=True,
+                            help='Size of the second variable')
+
+        return parser.parse_args()
