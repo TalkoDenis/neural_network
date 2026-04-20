@@ -3,9 +3,9 @@ import pandas as pd
 
 class RealData:
     def  __init__(self, filepath, target_column):
-        if filepath.endwith('.csv'):
+        if filepath.endswith('.csv'):
             df = pd.read_csv(filepath)
-        elif filepath.endwith('.xlsx'):
+        elif filepath.endswith('.xlsx'):
             df = pd.read_excel(filepath)
         else:
             raise ValueError('Unsupported format!')

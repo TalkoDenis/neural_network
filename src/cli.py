@@ -20,7 +20,7 @@ def parse_arguments():
     parser.add_argument('--batch_size',
                         type=int,
                         default=2,
-                        help='The size of a butch')   
+                        help='The size of a batch')   
 
     parser.add_argument('--data',
                         type=str,
