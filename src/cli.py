@@ -32,4 +32,9 @@ def parse_arguments():
                         default='price',
                         help='The column we want to predict')
     
+    parser.add_argument('--test_size',
+                        type=float,
+                        default=0.2,
+                        help='Fraction of data used for the final exam')
+    
     return parser.parse_args()

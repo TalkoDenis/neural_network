@@ -5,8 +5,8 @@ from src.nn.factory import NetworkFactory
 
 args = parse_arguments()
 
-dataset = RealData(filepath=args.data, target_column=args.target)
-x_train, y_train = dataset.get_data()
+dataset = RealData(filepath=args.data, target_column=args.target, test_size=args.test_size)
+x_train, y_train, x_test, y_test = dataset.get_data()
 
 my_network = NetworkFactory.create(args.network)
 
