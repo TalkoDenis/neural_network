@@ -12,3 +12,6 @@ my_network = NetworkFactory.create(args.network)
 
 trainer = Trainer(network=my_network, learning_rate=args.learning_rate)
 trainer.train(x_train, y_train, x_test, y_test, epochs=args.epochs, batch_size=args.batch_size)
+
+if args.save:
+    my_network.save('models/model_brain.pkl')

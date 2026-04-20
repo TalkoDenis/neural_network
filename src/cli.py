@@ -37,4 +37,8 @@ def parse_arguments():
                         default=0.2,
                         help='Fraction of data used for the final exam')
     
+    parser.add_argument('--save',
+                        action='store_true',
+                        help='Save the trained model to the folder')
+    
     return parser.parse_args()
