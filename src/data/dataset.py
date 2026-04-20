@@ -1,9 +1,24 @@
 import numpy as np
+import pandas as pd
 
-class XORData():
-    def __init__(self):
-        self.x_train = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
-        self.y_train = np.array([[0], [1], [1], [0]])
+class RealData:
+    def  __init__(self, filepath, target_column):
+        if filepath.endwith('.csv'):
+            df = pd.read_csv(filepath)
+        elif filepath.endwith('.xlsx'):
+            df = pd.read_excel(filepath)
+        else:
+            raise ValueError('Unsupported format!')
+
+        self.x_train = df.drop(columns=[target_column]).values
+        self.y_train = df[[target_column]].values
+
+        self.x_max = np.max(self.x_train, axis=0)
+        self.y_max = np.max(self.y_train, axis=0)
+
+        self.x_train = self.x_train / (self.x_max + 1e-8)
+        self.y_train = self.y_train / (self.y_max + 1e-8)
 
     def get_data(self):
         return self.x_train, self.y_train
+    

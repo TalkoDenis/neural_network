@@ -19,5 +19,5 @@ class Linear(Layer):
  
         self.weights = self.weights - (learning_rate * weights_error)
         
-        self.bias = self.bias - (learning_rate * output_error)
+        self.bias = self.bias - (learning_rate * bias_error)
         return input_error

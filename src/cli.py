@@ -21,4 +21,15 @@ def parse_arguments():
                         type=int,
                         default=2,
                         help='The size of a butch')   
+
+    parser.add_argument('--data',
+                        type=str,
+                        default='src/data/houses.csv',
+                        help='Path to the dataset')
+
+    parser.add_argument('--target',
+                        type=str,
+                        default='price',
+                        help='The column we want to predict')
+    
     return parser.parse_args()
