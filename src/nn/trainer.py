@@ -5,7 +5,7 @@ class Trainer:
         self.network = network
         self.learning_rate = learning_rate
 
-    def train(self, x_train, y_train, epochs, batch_size):
+    def train(self, x_train, y_train, x_test, y_test, epochs, batch_size):
         print("Starting to learn...\n")
 
         data_loader = DataLoader(x_train, y_train, batch_size)
@@ -19,9 +19,12 @@ class Trainer:
             if epoch % 100 == 0:
                 prediction = self.network.predict(x_train)
                 error = self.network.loss.forward(y_train, prediction)
-                print(f'Epoch {epoch}, average error {error}')            
+                print(f'Epoch {epoch}, average error {error:.4f}')            
 
-        print("\nTraining Complete! Let's look at the final predictions:")
+        test_prediction = self.network.predict(x_test)
+        test_error = self.network.loss.forward(y_test, test_prediction)
+        
+        print(f"\nTraining Complete!, Test Error is {test_error:.4f}")
         for i in range(len(x_train)):
             x = x_train[i:i+1]
             prediction = self.network.predict(x)
