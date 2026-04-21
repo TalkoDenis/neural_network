@@ -4,13 +4,13 @@ from src.data.dataset import RealData
 from src.cli import parse_inference_args
 
 args = parse_inference_args()
-dataset = RealData(filepath='src/data/houses.csv', target_column='price')
+dataset = RealData(filepath=args.data, target_column=args.target)
 
 my_network = NetworkFactory.create('deep')
 my_network.load('models/model_brain.pkl')
 
 new_houses = np.array([[args.size, args.bedrooms]])
-new_houses_squished = my_network.predict(new_houses_squished)
+new_houses_squished = my_network.predict(new_houses)
 
 prediction_squished = my_network.predict(new_houses_squished)
 

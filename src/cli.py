@@ -43,16 +43,26 @@ def parse_arguments():
     
     return parser.parse_args()
 
-    def parse_inference_args():
-        parser = argparse.ArgumentParser(description='CLI')
-        parser.add_argument('--size',
-                            type=float,
-                            required=True,
-                            help='Size of the first variable')
+def parse_inference_args():
+    parser = argparse.ArgumentParser(description='CLI')
+    parser.add_argument('--size',
+                        type=float,
+                        required=True,
+                        help='Size of the first variable')
 
-        parser.add_argument('--bedrooms',
-                            type=float,
-                            required=True,
-                            help='Size of the second variable')
+    parser.add_argument('--bedrooms',
+                        type=float,
+                        required=True,
+                        help='Size of the second variable')
 
-        return parser.parse_args()
+    parser.add_argument('--data',
+                        type=str,
+                        default='src/data/houses.csv',
+                        help='Path of thr dataset')
+
+    parser.add_argument('--target',
+                        type=str,
+                        default='price',
+                        help='The column we want to predict')
+    
+    return parser.parse_args()
