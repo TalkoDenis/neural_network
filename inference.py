@@ -9,13 +9,14 @@ dataset = RealData(filepath=args.data, target_column=args.target)
 my_network = NetworkFactory.create('deep')
 my_network.load('models/model_brain.pkl')
 
-new_houses = np.array([[args.size, args.bedrooms]])
-new_houses_squished = my_network.predict(new_houses)
+new_data = np.array([args.features])
 
-prediction_squished = my_network.predict(new_houses_squished)
+new_data_squished = new_data / (dataset.x_max + 1e-8)
 
-real_price = prediction_squished[0][0] * (dataset.y_max[0] + 1e-8)
+prediction_squished = my_network.predict(new_data_squished)
 
-print(f'Size {args.size}')
-print(f'bedrooms {args.bedrooms}')
-print(f'price {args.price}')
+real_prediction = prediction_squished[0][0] * (dataset.y_max[0] + 1e-8)
+
+print(f'Inputs: {args.features}')
+print(f'Target column: {args.target}')
+print(f'Result {real_prediction}')

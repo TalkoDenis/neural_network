@@ -45,15 +45,15 @@ def parse_arguments():
 
 def parse_inference_args():
     parser = argparse.ArgumentParser(description='CLI')
-    parser.add_argument('--size',
-                        type=float,
-                        required=True,
-                        help='Size of the first variable')
+    # parser.add_argument('--size',
+    #                     type=float,
+    #                     required=True,
+    #                     help='Size of the first variable')
 
-    parser.add_argument('--bedrooms',
-                        type=float,
-                        required=True,
-                        help='Size of the second variable')
+    # parser.add_argument('--bedrooms',
+    #                     type=float,
+    #                     required=True,
+    #                     help='Size of the second variable')
 
     parser.add_argument('--data',
                         type=str,
@@ -64,5 +64,11 @@ def parse_inference_args():
                         type=str,
                         default='price',
                         help='The column we want to predict')
+
+    parser.add_argument('--features',
+                        nargs='+',
+                        type=float,
+                        required=True,
+                        help='A list of input values')
     
     return parser.parse_args()
