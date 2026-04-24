@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class DataLoader:
     def __init__(self, x_data, y_data, batch_size=32):
         self.x = x_data

@@ -1,6 +1,7 @@
 import numpy as np
 from src.nn.loss import Loss
 
+
 class MSE(Loss):
     def __init__(self):
         pass

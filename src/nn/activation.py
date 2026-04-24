@@ -1,5 +1,6 @@
 from src.nn.layer import Layer
 
+
 class Activation(Layer):
     def __init__(self, activation_function, activation_derivative):
         super().__init__()
