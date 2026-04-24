@@ -1,7 +1,7 @@
 [project]
 name = "neural-network"
 version = "0.1.0"
-description = "Add your description here"
+description = "Small and stupid network"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
