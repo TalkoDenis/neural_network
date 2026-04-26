@@ -1,7 +1,7 @@
 from src.cli import parse_arguments
 from src.data.dataset import RealData
-from src.nn.trainer import Trainer
 from src.nn.factory import NetworkFactory
+from src.nn.trainer import Trainer
 
 args = parse_arguments()
 

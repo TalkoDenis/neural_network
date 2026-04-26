@@ -1,4 +1,5 @@
 import numpy as np
+
 from src.nn.activation import Activation
 
 

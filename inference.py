@@ -1,8 +1,10 @@
-import numpy as np
 import sys
-from src.nn.factory import NetworkFactory
-from src.data.dataset import RealData
+
+import numpy as np
+
 from src.cli import parse_inference_args
+from src.data.dataset import RealData
+from src.nn.factory import NetworkFactory
 
 args = parse_inference_args()
 try:

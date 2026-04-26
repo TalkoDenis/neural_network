@@ -1,5 +1,5 @@
-from src.nn.linear import Linear
 from src.nn.activations import ReLU
+from src.nn.linear import Linear
 from src.nn.losses import MSE
 from src.nn.network import Network
 
