@@ -2,7 +2,6 @@ import numpy as np
 from src.nn.dataloader import DataLoader
 
 
-
 def test_dataloader():
     x_dummy = np.zeros((105, 5))
     y_dummy = np.zeros((105, 1))
