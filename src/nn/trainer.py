@@ -30,5 +30,6 @@ class Trainer:
             x = x_train[i : i + 1]
             prediction = self.network.predict(x)
             print(
-                f"Input: {x[0]} | Target: {y_train[i][0]} | Network Guessed: {prediction[0][0]:.4f}"
+                f'Input: {x[0]} | Target: {y_train[i][0]} |'
+                f' Network Guessed: {prediction[0][0]:.4f}'
             )

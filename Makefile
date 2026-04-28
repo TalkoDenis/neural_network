@@ -4,7 +4,7 @@ train:
 	uv run python main.py --epochs 1000 --save
 
 infer:
-	uv run puthon inference.py --featured 2000 3
+	uv run python inference.py --features 2000 3
 
 test:
 	uv run python -m pytest
@@ -22,4 +22,4 @@ format:
 	uv run ruff format .
 
 clean:
-	rm -rf .pytest-cache .ruff_cache
+	rm -rf .pytest_cache .ruff_cache

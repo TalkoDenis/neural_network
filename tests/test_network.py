@@ -5,9 +5,9 @@ from src.nn.network import Network
 def test_netwprk_save_load(tmp_path):
     fake_layers = ["fake_layer_1", "fake_layer_2"]
     original_network = Network(layers=fake_layers, loss_function=MSE())
-    test_filepath = tmp_path / "test_brain.pki"
+    test_filepath = tmp_path / "test_brain.pkl"
     original_network.save(test_filepath)
-    assert test_filepath.exists() == True
+    assert test_filepath.exists()
 
     empty_network = Network(layers=[], loss_function=MSE())
     empty_network.load(test_filepath)
